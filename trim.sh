@@ -8,7 +8,7 @@
 
 #source activate samtools
 main_path=/home/smaguire/work/human_miRNA/low_input
-data_path=$main_path/data/10-15-18
+data_path=$main_path/data/
 output_path=$main_path/trimmed          
 for i in $( ls $data_path/*.fastq.gz); 
 do
@@ -17,9 +17,9 @@ new_name=${new_name%.fastq.gz}
 bbduk.sh \
 in=$i \
 out=$output_path/$new_name.fastq \
-ref=$main_path/adapter_seq.fasta \
+ref=/home/smaguire/work/human_miRNA/adapter_seq.fasta \
 ktrim=r \
-k=23 \
+k=18 \
 mink=11 \
 hdist=1 \
 trimq=10 \
